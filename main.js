@@ -19,7 +19,7 @@ function isBetweenFiveAndFiveTwentyFive() {
 
 export const main = async () => {
   try {
-    const questions = await getRandomDocuments(4);
+    const questions = await getRandomDocuments(2);
     questions.forEach(async (q, index) => {
       const {
         question,
