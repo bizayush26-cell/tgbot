@@ -1,5 +1,5 @@
 import cron from "node-cron";
-import { main } from "./src/utils/main.js";
+import { main } from "./main.js";
 
 // Schedule a task to run every 30 mins
 cron.schedule("*/30 * * * *", async () => {
