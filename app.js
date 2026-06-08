@@ -16,9 +16,17 @@ import express from "express";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/sendpoll", async (req, res) => {
+app.get("/sendpoll/:count", async (req, res) => {
   try {
-    await main();
+    const countStr = req.params.count;
+    const count = parseInt(countStr, 10);
+
+    // 3. Quick validation check
+    if (isNaN(count)) {
+        return res.status(400).send('Count must be a valid number');
+    }
+
+    await main(count);
     res.send("Polls sent successfully!");
   } catch (error) {
     console.error("Error in main function:", error);

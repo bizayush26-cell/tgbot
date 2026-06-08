@@ -17,9 +17,9 @@ function isBetweenFiveAndFiveTwentyFive() {
   return hours === 17 && minutes >= 0 && minutes <= 25;
 }
 
-export const main = async () => {
+export const main = async (count = 2) => {
   try {
-    const questions = await getRandomDocuments(2);
+    const questions = await getRandomDocuments(count);
     questions.forEach(async (q, index) => {
       const {
         question,
