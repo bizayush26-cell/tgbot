@@ -16,6 +16,12 @@ import express from "express";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get("/", async (req, res) => {
+  res.send(
+    "Welcome to the Poll Sender API! Use /sendpoll/:count to send polls.",
+  );
+});
+
 app.get("/sendpoll/:count", async (req, res) => {
   try {
     const countStr = req.params.count;
@@ -23,7 +29,7 @@ app.get("/sendpoll/:count", async (req, res) => {
 
     // 3. Quick validation check
     if (isNaN(count)) {
-        return res.status(400).send('Count must be a valid number');
+      return res.status(400).send("Count must be a valid number");
     }
 
     await main(count);
